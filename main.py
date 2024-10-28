@@ -30,9 +30,9 @@ def preprocess_data(customer_data: dict):
     return customer_data_df
 
 def get_prediction(customer_data: dict):
-    preprocess_data = preprocess_data(customer_data)
-    prediction = model.predict(preprocess_data)
-    probability = model.predict_proba(preprocess_data)
+    preprocess_data_df = preprocess_data(customer_data)
+    prediction = model.predict(preprocess_data_df)
+    probability = model.predict_proba(preprocess_data_df)
     return prediction, probability
 
 @app.post("/predict")
