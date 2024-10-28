@@ -47,19 +47,3 @@ def predict(customer_data: dict):
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
-
-customer_data = {
-        "CreditScore": credit_score,
-        "Geography": location,
-        "Gender": gender,
-        "Age": age,
-        "Tenure": tenure,
-        "Balance": balance,
-        "NumOfProducts": num_products,
-        "HasCrCard": has_credit_card,
-        "IsActiveMember": is_active_member,
-        "EstimatedSalary": estimated_salary,
-        "CLV": clv,
-        "AgeGroup": age_group,
-        "TenureAgeRatio": tenure / age,
-    }
