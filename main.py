@@ -7,7 +7,6 @@ with open("ensemble_model.pkl", "rb") as f:
     model = pickle.load(f)
 
 
-
 def preprocess_data(customer_data: dict):
     input_data = {
         "NumOfProducts": customer_data["NumOfProducts"],
@@ -23,6 +22,11 @@ def preprocess_data(customer_data: dict):
         "HasCrCard": int(customer_data["HasCrCard"]),
         "Tenure": customer_data["Tenure"],
         "Gender_Male": 1 if customer_data["Gender"] == "Male" else 0,
+        "AgeGroup_Elderly": 1 if customer_data["AgeGroup"] == "Elderly" else 0,
+        "AgeGroup_MiddleAged": 1 if customer_data["AgeGroup"] == "MiddleAged" else 0,
+        "AgeGroup_Senior": 1 if customer_data["AgeGroup"] == "Senior" else 0,
+        "TenureAgeRatio": customer_data["Tenure"] / customer_data["Age"],
+        "CLV": customer_data["CLV"]
     }
 
     customer_data_df = pd.DataFrame([input_data])
@@ -43,3 +47,19 @@ def predict(customer_data: dict):
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
+
+customer_data = {
+        "CreditScore": credit_score,
+        "Geography": location,
+        "Gender": gender,
+        "Age": age,
+        "Tenure": tenure,
+        "Balance": balance,
+        "NumOfProducts": num_products,
+        "HasCrCard": has_credit_card,
+        "IsActiveMember": is_active_member,
+        "EstimatedSalary": estimated_salary,
+        "CLV": clv,
+        "AgeGroup": age_group,
+        "TenureAgeRatio": tenure / age,
+    }
