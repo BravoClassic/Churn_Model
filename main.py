@@ -13,16 +13,16 @@ def preprocess_data(customer_data: dict):
         "NumOfProducts": customer_data["NumOfProducts"],
         "IsActiveMember": int( customer_data["IsActiveMember"]),
         "Age": customer_data["Age"],
-        "Geography_Germany": 1 if customer_data["Geography_Germany"] == "Germany" else 0,
+        "Geography_Germany": 1 if customer_data["Geography"] == "Germany" else 0,
         "Balance": customer_data["Balance"],
-        "Geography_France": 1 if customer_data["Geography_France"] == "France" else 0,
-        "Gender_Female": 1 if customer_data["Gender_Female"] == "Female" else 0,
-        "Geography_Spain": 1 if customer_data["Geography_Spain"] == "Spain" else 0,
+        "Geography_France": 1 if customer_data["Geography"] == "France" else 0,
+        "Gender_Female": 1 if customer_data["Gender"] == "Female" else 0,
+        "Geography_Spain": 1 if customer_data["Geography"] == "Spain" else 0,
         "CreditScore": customer_data["CreditScore"],
         "EstimatedSalary": customer_data["EstimatedSalary"],
         "HasCrCard": int(customer_data["HasCrCard"]),
         "Tenure": customer_data["Tenure"],
-        "Gender_Male": 1 if customer_data["Gender_Male"] == "Male" else 0,
+        "Gender_Male": 1 if customer_data["Gender"] == "Male" else 0,
     }
 
     customer_data_df = pd.DataFrame([input_data])
